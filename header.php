@@ -22,6 +22,9 @@
     ?>
     
     <body <?php body_class( $portada ); ?>>
+
+   <?php include_once("analyticstracking.php") ?>
+
         <div class="container">
             <nav class="navbar navbar-default" role="navigation">
                 <div class="navbar-header">
