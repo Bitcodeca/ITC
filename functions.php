@@ -7,13 +7,13 @@
 function awesome_script_enqueue() {
 	//css
 	wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.4', 'all');
-	wp_enqueue_style('customstyle', get_template_directory_uri() . '/css/styles.css', array(), '1.0.0', 'all');
 	wp_enqueue_style('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', array(), '1.0.0', 'all');
     wp_enqueue_style('nivo-slidercss', get_template_directory_uri() . '/css/nivo-slider.css', array(), '1.0.0', 'all');
+    wp_enqueue_style('customstyle', get_template_directory_uri() . '/css/styles.css', array(), '1.0.0', 'all');
 	//js
-	wp_enqueue_script('jquery');
-	wp_enqueue_script('bootstrapjs', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '3.3.4', true);
-    wp_enqueue_script('nivo-sliderjs', get_template_directory_uri() . '/js/jquery.nivo.slider.pack.js', array(), '1.0.0', true);
+  wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js',array(), '3.3.4', true);
+  wp_enqueue_script('bootstrapjs', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '3.3.4', true);  
+  wp_enqueue_script('nivo-sliderjs', get_template_directory_uri() . '/js/jquery.nivo.slider.pack.js', array(), '1.0.0', true);
 }
 
 add_action( 'wp_enqueue_scripts', 'awesome_script_enqueue');
@@ -35,6 +35,80 @@ function awesome_theme_setup() {
 add_action('init', 'awesome_theme_setup');
 
 // Registro de Taxonomias
+
+add_action( 'init', 'boton_taxonomy', 0 );
+
+function boton_taxonomy() {
+
+// Labels part for the GUI
+
+  $labels = array(
+    'name' => _x( 'Boton', 'taxonomy general name' ),
+    'singular_name' => _x( 'boton', 'taxonomy singular name' ),
+    'search_items' =>  __( 'buscar boton' ),
+    'popular_items' => __( 'boton mas usado' ),
+    'all_items' => __( 'Todos los botones' ),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __( 'Editar boton' ), 
+    'update_item' => __( 'Actualizar boton' ),
+    'add_new_item' => __( 'Agregar Nuevo Album' ),
+    'new_item_name' => __( 'Nuevo nombre de Boton' ),
+    'separate_items_with_commas' => __( 'Separar botones con comas' ),
+    'add_or_remove_items' => __( 'Agregar nuevos botones' ),
+    'choose_from_most_used' => __( 'Escoger el boton mas usado' ),
+    'menu_name' => __( 'Boton' ),
+  ); 
+
+// Now register the non-hierarchical taxonomy like tag
+
+  register_taxonomy('boton','post',array(
+    'hierarchical' => false,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'boton' ),
+  ));
+}
+
+add_action( 'init', 'tamaño_taxonomy', 0 );
+
+function tamaño_taxonomy() {
+
+// Labels part for the GUI
+
+  $labels = array(
+    'name' => _x( 'Tamaño', 'taxonomy general name' ),
+    'singular_name' => _x( 'tamaño', 'taxonomy singular name' ),
+    'search_items' =>  __( 'buscar tamaño' ),
+    'popular_items' => __( 'tamaño mas usado' ),
+    'all_items' => __( 'Todos los tamaños' ),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __( 'Editar tamaño' ), 
+    'update_item' => __( 'Actualizar tamaño' ),
+    'add_new_item' => __( 'Agregar Nuevo Album' ),
+    'new_item_name' => __( 'Nuevo nombre de Tamaño' ),
+    'separate_items_with_commas' => __( 'Separar tamaños con comas' ),
+    'add_or_remove_items' => __( 'Agregar nuevos tamaños' ),
+    'choose_from_most_used' => __( 'Escoger el tamaño mas usado' ),
+    'menu_name' => __( 'Tamaño' ),
+  ); 
+
+// Now register the non-hierarchical taxonomy like tag
+
+  register_taxonomy('tamaño','post',array(
+    'hierarchical' => false,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'tamaño' ),
+  ));
+}
 
 add_action( 'init', 'formato_taxonomy', 0 );
 
@@ -93,7 +167,7 @@ function paginaportada(){
    'menu_position'=>6,
    'capability_type'=> 'page',
    'supports'=> array( 'title', 'editor', 'author', 'thumbnail' ),
-  'taxonomies' => array(),
+  'taxonomies' => array( 'tamaño', 'category'),
    'query_var'=>true,
   );
   register_post_type( "portada", $args );
@@ -119,7 +193,7 @@ function paginaportada(){
    'menu_position'=>6,
    'capability_type'=> 'page',
    'supports'=> array( 'title', 'editor', 'author', 'thumbnail' ),
-  'taxonomies' => array('formato', 'category'),
+  'taxonomies' => array('formato', 'boton', 'category'),
    'query_var'=>true,
   );
   register_post_type( "inicio", $args );
@@ -225,8 +299,6 @@ function paginaportada(){
   register_post_type( "contacto", $args );
  }
  add_action("init","paginacontacto");
-
-
 
 /*
 	==========================================

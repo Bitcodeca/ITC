@@ -68,8 +68,22 @@ h6 {
 	padding-right: 100px;
 }
 
+.contenidoempresa ul {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 15px;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
 .contenidoservicios p {
 	text-align: justify;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 15px;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
+.contenidoservicios ul {
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 15px;
 	padding-left: 100px;
@@ -129,7 +143,7 @@ h6 {
 }
 
 .navbar-default {
-	height: 70px;
+	min-height: 70px;
 	border: 0;
 	border-radius: 0;
 	margin: 0;
@@ -202,7 +216,7 @@ h6 {
 	background-color: #ffffff;
 	padding-top: 25px;
 	padding-bottom: 25px;
-	min-height: 60vh;
+	min-height: 350px;
 }
 
 .contenidoempresa {
@@ -216,6 +230,14 @@ h6 {
 	width: 100%;
 	height: auto;
 	padding-left: 50px;
+}
+
+.tab-content {
+	padding-bottom: 70px;
+}
+
+.tab-content img {
+	margin-top: 20px;
 }
 
 .contenidoservicios {
@@ -245,6 +267,18 @@ h6 {
 	margin-bottom: 50px;
 }
 
+.carruselproductos {
+	min-width: 250px;
+	min-height: 150px;
+}
+
+.carruselproductos img {
+	width: auto;
+	height: auto;
+	padding-left: 0px;
+	margin-bottom: 0px;
+}
+
 .contenidonoticias {
 	background-color: #ffffff;
 	padding-top: 25px;
@@ -265,7 +299,6 @@ h6 {
 	padding-top: 25px;
 	padding-bottom: 25px;
 	text-align: center;
-	min-height: 72vh;
 }
 
 .contenidocontactanos img {
@@ -329,7 +362,7 @@ h6 {
 	padding: 25px;
 	color: #FFF;
 	width: 100%;
-	height:100%;
+	height:auto;
 	text-align: center;
 }
 
@@ -374,7 +407,172 @@ h6 {
 	color: rgba(255, 255, 255, 1);
 }
 
+		.HD {
+		display: block;
+	}
+
+		.movil {
+		display: none;
+	}
+
+
 /* Final del CSS del Footer y de las redes sociales */
+
+/* Inicio del CSS Responsive */
+
+@media (max-width: 1024px) {
+
+	.navbar-default .navbar-nav > li > a {
+	letter-spacing: 1px;
+	color: #222;
+	font-size: 12px;
+	margin-top: 25px;
+	padding: 0px;
+}
+}
+
+@media (max-width: 992px) {
+
+	.navbar-default .navbar-nav > li > a {
+	letter-spacing: 2px;
+	color: #222;
+	font-size: 8px;
+	margin-top: 25px;
+	padding: 0px;
+}
+
+	.boton {
+	position: absolute;
+	bottom: 0;
+	-webkit-transform:translateX(-50%);
+    -ms-transform:translateX(-50%);
+    transform:translateX(-50%);
+    left: 50%;
+    margin-bottom: 50px;
+}
+
+	.contenidoempresa p {
+	text-align: justify;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 15px;
+	padding-left: 35px;
+	padding-right: 35px;
+}
+
+	.contenidoempresa img {
+	width: 100%;
+	height: auto;
+	padding-left: 15px;
+}
+
+	.contenidoservicios p {
+	text-align: justify;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 15px;
+	padding-left: 35px;
+	padding-right: 35px;
+}
+
+	.contenidoproductos p {
+	text-align: justify;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 15px;
+	padding-left: 35px;
+	padding-right: 35px;
+}
+	
+	.contenidocontactanos p {
+	text-align: justify;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 15px;
+	padding-left: 35px;
+	padding-right: 35px;
+}
+
+}
+
+@media (max-width: 768px) {
+
+	.navbar-default {
+	min-height: 50px;
+	border: 0;
+	border-radius: 0;
+	margin: 0;
+	font-family: Verdana, sans-serif;
+	
+}
+	.navbar-default .navbar-brand {
+	font-weight: 700;
+	padding: 8px 15px;
+}
+
+
+	.navbar-default .navbar-nav > li > a {
+	letter-spacing: 2px;
+	color: #222;
+	font-size: 12px;
+	margin-top: 25px;
+	padding: 0px;
+}
+
+	.HD {
+		display: none;
+	}
+
+	.movil {
+		display: block;
+	}
+
+	.contenidoempresa p {
+	text-align: justify;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 15px;
+	padding-left: 35px;
+	padding-right: 35px;
+}
+
+	.contenidoempresa img {
+	width: 100%;
+	height: auto;
+	padding-left: 5px;
+}
+
+	.contenidoservicios p {
+	text-align: justify;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 15px;
+	padding-left: 35px;
+	padding-right: 35px;
+}
+
+	.contenidoproductos p {
+	text-align: justify;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 15px;
+	padding-left: 35px;
+	padding-right: 35px;
+}
+	
+	.contenidocontactanos p {
+	text-align: justify;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 15px;
+	padding-left: 35px;
+	padding-right: 35px;
+}
+
+	.fondoportada {
+		background-repeat: no-repeat;
+	}
+
+	.fondoportada img {
+		width: 100%;
+		height: 100%;
+	}
+
+
+
+}
 
 
 

@@ -9,7 +9,8 @@
               <div class="lineatitulo"></div>
                 <p>Si desea información sobre nuestro servicio técnico, productos de computación o quiere un presupuesto corporativo para su empresa, por favor complete el siguiente formulario y posteriormente nos comunicaremos con usted.</p>
                   <div class="col-sm-6 col-sm-offset-3">
-                    <form role="form" action="phpmailer/archivodeprueba.php" method="post">
+
+                    <form role="form" action="<?php echo get_bloginfo('template_directory');?>/phpmailer/mail.php" method="post">
                       <div class="ajax-hidden">
                         <div class="form-group wow fadeInUp">
                           <label class="sr-only" >Nombre</label>
@@ -27,9 +28,6 @@
                                               <div class="ajax-response"></div>
                     </form>
                   </div>
-
-
-
          </div>
         </div>
       </div>
@@ -51,7 +49,7 @@
                   
 
                   <div class="col-md-12 col-sm-12">
-                        <?php echo do_shortcode("[huge_it_maps id='2']"); ?>
+                        <?php echo do_shortcode("[huge_it_maps id='1']"); ?>
                     </div>
                  </div>
   </div>
