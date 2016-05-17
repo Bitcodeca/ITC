@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<meta charset="utf-8">
 		<title>ITC</title>
-		<link rel="icon" type="image/png" href="<?php echo get_bloginfo('template_directory');?>/img/favicon.jpg">
+		<link rel="icon" type="image/png" href="<?php echo get_bloginfo('template_directory');?>/img/favicon.png">
 		<?php wp_head(); ?>
 	</head>
 		
