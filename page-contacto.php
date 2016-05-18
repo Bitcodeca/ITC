@@ -9,24 +9,21 @@
               <div class="lineatitulo"></div>
                 <p>Si desea información sobre nuestro servicio técnico, productos de computación o quiere un presupuesto corporativo para su empresa, por favor complete el siguiente formulario y posteriormente nos comunicaremos con usted.</p>
                   <div class="col-sm-6 col-sm-offset-3">
-
-                    <form role="form" action="<?php echo get_bloginfo('template_directory');?>/phpmailer/mail.php" method="post">
-                      <div class="ajax-hidden">
-                        <div class="form-group wow fadeInUp">
-                          <label class="sr-only" >Nombre</label>
-                            <input type="text" id="name" class="form-control" name="name" placeholder="Nombre">
+                    <div ng-controller="ContactController">
+                      <form ng-submit="submit(contactform)" name="contactform" method="post" action="" role="form">
+                        <div class="form-group wow fadeInLeftBig animated" ng-class="{ 'has-error': contactform.nombre.$invalid && submitted }">
+                          <input placeholder="Nombre" id="nombre" name="nombre" type="text" class="form-control" ng-model="formData.nombre" required>
                         </div>
-                              <div class="form-group wow fadeInUp" data-wow-delay=".1s">
-                                <label class="sr-only" >Correo</label>
-                                  <input type="email" id="email" class="form-control" name="email" placeholder="Correo">
-                              </div>
-                                    <div class="form-group wow fadeInUp" data-wow-delay=".2s">
-                                      <textarea class="form-control" id="message" name="message" rows="7" placeholder="Mensaje"></textarea>
-                                    </div>
-                                          <button type="submit"  class="btn btn-lg btn-block wow fadeInUp" data-wow-delay=".3s" formtarget="_new">Mandar Mensaje</button>
-                      </div>
-                                              <div class="ajax-response"></div>
-                    </form>
+                        <div class="form-group wow fadeInRightBig" ng-class="{ 'has-error': contactform.email.$invalid && submitted }">
+                          <input placeholder="Correo"  id="email" name="email" type="email" class="form-control" ng-model="formData.email" required>
+                        </div>
+                        <div class="form-group wow fadeInUpBig" ng-class="{ 'has-error': contactform.message.$invalid && submitted }">
+                          <textarea placeholder="Mensaje"  id="message" name="message" class="form-control" rows="5" style="resize: none;" ng-model="formData.message" required></textarea>
+                        </div>                
+                          <button class="btn btn-bit" type="submit" ng-disabled="submitButtonDisabled"><i class="fa fa-send-o"> </i> Enviar</button>
+                      </form>
+                          <p ng-class="result" style="padding: 15px; margin: 0;">{{ resultMessage }}</p>
+                    </div>
                   </div>
          </div>
         </div>
@@ -57,4 +54,8 @@
 </div>       
 </section>
 
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script src="<?php echo get_bloginfo('template_directory');?>/app.js"></script>
+    <script src="<?php echo get_bloginfo('template_directory');?>/controllers.js"></script>
 <?php get_footer(); ?>

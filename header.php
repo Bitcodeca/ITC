@@ -21,7 +21,7 @@
         
     ?>
     
-    <body <?php body_class( $portada ); ?>>
+    <body ng-app="contactApp" <?php body_class( $portada ); ?>>
 
    <?php include_once("analyticstracking.php") ?>
 
